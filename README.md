@@ -41,7 +41,7 @@ StableAnimator/
 │   │       ├── genderage.onnx
 │   │       ├── glintr100.onnx
 │   │       └── scrfd_10g_bnkps.onnx
-
+```
 
 ## Setup assets for inference
 
