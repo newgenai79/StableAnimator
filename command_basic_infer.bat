@@ -1,7 +1,7 @@
 set CUDA_VISIBLE_DEVICES=0 
 python inference_basic.py ^
  --pretrained_model_name_or_path="./checkpoints/stable-video-diffusion-img2vid-xt" ^
- --output_dir="./basic_infer" ^
+ --output_dir="./outputs" ^
  --validation_control_folder="./inference/animation1/poses" ^
  --validation_image="./inference/animation1/reference.png" ^
  --width=512 ^

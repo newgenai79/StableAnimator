@@ -396,9 +396,9 @@ if __name__ == "__main__":
 
     png_out_file = os.path.join(args.output_dir, "animated_images")
     os.makedirs(png_out_file, exist_ok=True)
-    export_to_gif(video_frames, out_file, 8)
+    export_to_gif(video_frames, out_file, args.fps)
     save_frames_as_png(video_frames, png_out_file)
-    save_frames_as_mp4(video_frames, args.output_dir, 30)
+    save_frames_as_mp4(video_frames, args.output_dir, args.fps)
     end_time = datetime.now()
     print(f"End Time: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
     duration = end_time - start_time
