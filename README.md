@@ -43,7 +43,18 @@ StableAnimator/
 │   │       └── scrfd_10g_bnkps.onnx
 
 
+## Setup assets for inference
 
+Step 1: Extract frames from target video
+If you only have the target MP4 file (target.mp4), we recommend you to use `ffmpeg` to convert the MP4 file to multiple frames (.png files) without any quality loss.
+```
+ffmpeg -i target.mp4 -q:v 1 -start_number 0 target_images/frame_%d.png
+```
+
+Step 2: Generate the human skeleton images
+```
+python DWPose/skeleton_extraction.py --target_image_folder_path="inference/animation1/target_images" --ref_image_path="inference/animation1/reference.png" --poses_folder_path="inference/animation1/poses"
+```
 ## Contact
 If you have any suggestions or find our work helpful, feel free to contact the author
 
