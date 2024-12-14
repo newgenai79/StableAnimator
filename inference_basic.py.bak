@@ -190,12 +190,6 @@ def parse_args():
         required=False
     )
     parser.add_argument(
-        "--fps",
-        type=int,
-        default=25,
-        required=False
-    )
-    parser.add_argument(
         "--gradient_checkpointing",
         action="store_true",
         help="Whether or not to use gradient checkpointing to save memory at the expense of slower backward pass.",
