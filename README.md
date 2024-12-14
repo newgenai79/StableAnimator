@@ -56,9 +56,9 @@ Step 2: Generate the human skeleton images
 python DWPose/skeleton_extraction.py --target_image_folder_path="inference/animation1/target_images" --ref_image_path="inference/animation1/reference.png" --poses_folder_path="inference/animation1/poses"
 ```
 
-Step 3: Update command_basic_infer.bat
+Step 3: Update command_basic_infer.bat and 
 ```
-python command_basic_infer.bat
+command_basic_infer.bat
 ```
 
 ## Contact
