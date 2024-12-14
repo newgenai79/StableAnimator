@@ -49,10 +49,11 @@ def save_frames_as_mp4(frames, output_mp4_path, fps):
     print("Starting saving the frames as mp4")
     height, width, _ = frames[0].shape
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # 'H264' for better quality
+    print(output_mp4_path, width, height)
     out = cv2.VideoWriter(output_mp4_path, fourcc, fps, (width, height))
     for frame in frames:
-        frame_bgr = frame if frame.shape[2] == 3 else cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
-        out.write(frame_bgr)
+       frame_bgr = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+       out.write(frame_bgr)
     out.release()
 
 
@@ -402,9 +403,10 @@ if __name__ == "__main__":
 
     png_out_file = os.path.join(args.output_dir, "animated_images")
     os.makedirs(png_out_file, exist_ok=True)
+    
+    save_frames_as_mp4(video_frames, out_file, args.fps)
     export_to_gif(video_frames, out_file, args.fps)
     save_frames_as_png(video_frames, png_out_file)
-    save_frames_as_mp4(video_frames, args.output_dir, args.fps)
     end_time = datetime.now()
     print(f"End Time: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
     duration = end_time - start_time

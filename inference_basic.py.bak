@@ -49,10 +49,11 @@ def save_frames_as_mp4(frames, output_mp4_path, fps):
     print("Starting saving the frames as mp4")
     height, width, _ = frames[0].shape
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # 'H264' for better quality
+    print(output_mp4_path, width, height)
     out = cv2.VideoWriter(output_mp4_path, fourcc, fps, (width, height))
     for frame in frames:
-        frame_bgr = frame if frame.shape[2] == 3 else cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
-        out.write(frame_bgr)
+       frame_bgr = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+       out.write(frame_bgr)
     out.release()
 
 
@@ -187,6 +188,12 @@ def parse_args():
         "--frames_overlap",
         type=int,
         default=4,
+        required=False
+    )
+    parser.add_argument(
+        "--fps",
+        type=int,
+        default=25,
         required=False
     )
     parser.add_argument(
